@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
+	<item id="Version"><![CDATA[X2,X2.5,X3,X3.1,X3.2,X3.3,X3.4]]></item>
+	<item id="Time"><![CDATA[2017-11-08 18:12]]></item>
+	<item id="From"><![CDATA[地精研究院 (http://bbs.islga.org/)]]></item>
+	<item id="Data">
+		<item id="plugin">
+			<item id="available"><![CDATA[1]]></item>
+			<item id="adminid"><![CDATA[1]]></item>
+			<item id="name"><![CDATA[戰網登錄]]></item>
+			<item id="identifier"><![CDATA[ga_bnet]]></item>
+			<item id="description"><![CDATA[使用戰網登錄帳號一鍵登錄到論壇]]></item>
+			<item id="datatables"><![CDATA[]]></item>
+			<item id="directory"><![CDATA[ga_bnet/]]></item>
+			<item id="copyright"><![CDATA[Tinko @ Goblin Academy]]></item>
+			<item id="version"><![CDATA[1.0.0]]></item>
+			<item id="__modules">
+				<item id="0">
+					<item id="name"><![CDATA[bnet]]></item>
+					<item id="menu"><![CDATA[]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[11]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="1">
+					<item id="name"><![CDATA[disconnect]]></item>
+					<item id="menu"><![CDATA[綁定戰網賬號]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[7]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="version"><![CDATA[X2,X2.5,X3,X3.1,X3.2,X3.3,X3.4]]></item>
+		<item id="var">
+			<item id="0">
+				<item id="displayorder"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[是否顯示戰網登錄按鈕]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[show_login]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="1">
+				<item id="displayorder"><![CDATA[2]]></item>
+				<item id="title"><![CDATA[是否顯示戰網綁定按鈕]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[show_bind]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="2">
+				<item id="displayorder"><![CDATA[3]]></item>
+				<item id="title"><![CDATA[Key]]></item>
+				<item id="description"><![CDATA[這裏填寫戰網開放平臺申請來的 Key]]></item>
+				<item id="variable"><![CDATA[Bnet_Key]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="3">
+				<item id="displayorder"><![CDATA[4]]></item>
+				<item id="title"><![CDATA[Secret]]></item>
+				<item id="description"><![CDATA[這裏填寫戰網開放平臺申請來的 Secret]]></item>
+				<item id="variable"><![CDATA[Bnet_Secret]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="4">
+				<item id="displayorder"><![CDATA[5]]></item>
+				<item id="title"><![CDATA[新建用戶所屬用戶組]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[group]]></item>
+				<item id="type"><![CDATA[group]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="5">
+				<item id="displayorder"><![CDATA[6]]></item>
+				<item id="title"><![CDATA[新建用戶贈送積分]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[credit]]></item>
+				<item id="type"><![CDATA[extcredit]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="6">
+				<item id="displayorder"><![CDATA[7]]></item>
+				<item id="title"><![CDATA[新建用戶贈送積分數量]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[credit_quan]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+		</item>
+		<item id="language">
+			<item id="scriptlang">
+				<item id="Authorization_Error"><![CDATA[戰網授權簽名錯誤，請重新登錄授權！]]></item>
+				<item id="bnet_login"><![CDATA[用戰網賬號登錄]]></item>
+				<item id="bnet_login_bind"><![CDATA[戰網登錄綁定]]></item>
+				<item id="bind_bnet"><![CDATA[綁定戰網賬號]]></item>
+				<item id="ga_bnet_tip"><![CDATA[只需一步，快速開始]]></item>
+				<item id="chn_bnet_user_before_bind"><![CDATA[當前戰網賬號已綁定論壇其它用戶，要想將當前論壇用戶綁定戰網賬號，您必須先解綁現在已經綁定的論壇賬號。]]></item>
+				<item id="bind_success"><![CDATA[您的戰網賬號已成功綁定論壇用戶。]]></item>
+				<item id="failure_bind_bnet_user"><![CDATA[系統出錯，綁定失敗，請重試！]]></item>
+				<item id="notbinded"><![CDATA[當前帳戶未綁定戰網賬號！]]></item>
+				<item id="disbind_success"><![CDATA[解除綁定成功！]]></item>
+				<item id="disbind"><![CDATA[解除綁定]]></item>
+				<item id="bnet_invalid_token"><![CDATA[戰網返回 Token 異常，請重試。若反覆發生此情況，請聯繫頭目。]]></item>
+				<item id="bnet_user_info_error"><![CDATA[戰網返回用戶數據異常，可能是戰網 API 故障或站點服務器無法連接戰網 Amazon AWS ，請重試。若反覆發生此情況，請聯繫頭目。]]></item>
+				<item id="wrong_formhash"><![CDATA[發生了一點小錯誤，鏈接過期，準備跳回主頁，重新點擊即可，無需驚慌……]]></item>
+				<item id="invalid_bnet_region"><![CDATA[指定了無效的戰網服務器。]]></item>
+				<item id="bnet_region_cn"><![CDATA[中國]]></item>
+				<item id="bnet_region_us"><![CDATA[美國]]></item>
+				<item id="bnet_region_eu"><![CDATA[歐洲]]></item>
+				<item id="bnet_region_kr"><![CDATA[韓國]]></item>
+				<item id="bnet_region_tw"><![CDATA[臺灣]]></item>
+				<item id="bnet_region_sea"><![CDATA[東南亞]]></item>
+				<item id="bnet_seccode_name"><![CDATA[戰網綁定狀態]]></item>
+				<item id="bnet_seccode_description"><![CDATA[使用戰網綁定狀態進行驗證]]></item>
+				<item id="bnet_seccode_copyright"><![CDATA[Tinko @ Goblin Academy]]></item>
+				<item id="bnet_seccode_echo_frontend"><![CDATA[戰網綁定狀態驗證已啓用，系統將驗證您的戰網綁定狀態，驗證碼請留空或隨意。普通登錄和註冊接口已被關閉，請使用戰網登錄入口]]></item>
+			</item>
+			<item id="templatelang">
+				<item id="nowbinded"><![CDATA[當前已綁定戰網賬號：]]></item>
+				<item id="disbind"><![CDATA[解除綁定]]></item>
+				<item id="invalid_bnet_region"><![CDATA[指定了無效的戰網服務器。]]></item>
+				<item id="bnet_region_cn"><![CDATA[中國]]></item>
+				<item id="bnet_region_us"><![CDATA[美國]]></item>
+				<item id="bnet_region_eu"><![CDATA[歐洲]]></item>
+				<item id="bnet_region_kr"><![CDATA[韓國]]></item>
+				<item id="bnet_region_tw"><![CDATA[臺灣]]></item>
+				<item id="bnet_region_sea"><![CDATA[東南亞]]></item>
+				<item id="user_set_nav_bind"><![CDATA[點擊按鈕，立刻綁定戰網賬號]]></item>
+				<item id="bind_bnet"><![CDATA[綁定戰網賬號]]></item>
+				<item id="battletag"><![CDATA[戰網賬號：]]></item>
+				<item id="bind_old_user"><![CDATA[綁定我在本站的用戶]]></item>
+				<item id="bind_new_user"><![CDATA[在本站創建新的用戶並綁定]]></item>
+				<item id="username"><![CDATA[用戶名]]></item>
+				<item id="password"><![CDATA[密碼]]></item>
+				<item id="repassword"><![CDATA[確認密碼]]></item>
+				<item id="email"><![CDATA[郵箱]]></item>
+				<item id="submit"><![CDATA[提交]]></item>
+				<item id="typeall"><![CDATA[請填寫所有內容。]]></item>
+				<item id="illegal_post"><![CDATA[所提交的數據有非法內容。]]></item>
+				<item id="bind_success"><![CDATA[您的戰網賬號已成功綁定論壇用戶。]]></item>
+				<item id="bind_failure"><![CDATA[綁定失敗！]]></item>
+				<item id="user_not_found"><![CDATA[用戶不存在！]]></item>
+				<item id="wrong_password"><![CDATA[密碼不正確！]]></item>
+				<item id="bind_edyet"><![CDATA[重複綁定，該戰網賬號已綁定其他論壇用戶，或該論壇用戶綁定了其它戰網賬號！]]></item>
+				<item id="fatal_error"><![CDATA[內部錯誤，請聯繫管理員！]]></item>
+				<item id="username_duplicate"><![CDATA[該用戶名已存在，請更換用戶名！]]></item>
+				<item id="members_add_illegal"><![CDATA[用戶名包含敏感字符或被系統屏蔽！]]></item>
+				<item id="members_username_protect"><![CDATA[用戶名包含被系統屏蔽的字符！]]></item>
+				<item id="members_email_illegal"><![CDATA[Email 地址無效！]]></item>
+				<item id="members_email_domain_illegal"><![CDATA[Email 包含不可使用的郵箱域名！]]></item>
+				<item id="members_email_duplicate"><![CDATA[該 Email 地址已經被註冊！]]></item>
+				<item id="members_add_passwordwrong"><![CDATA[兩次密碼不一致！]]></item>
+				<item id="bnet_seccode_name"><![CDATA[戰網綁定狀態]]></item>
+				<item id="bnet_seccode_description"><![CDATA[使用戰網綁定狀態進行驗證]]></item>
+				<item id="bnet_seccode_copyright"><![CDATA[Tinko @ Goblin Academy]]></item>
+				<item id="bnet_seccode_echo_frontend"><![CDATA[戰網綁定狀態驗證已啓用，系統將驗證您的戰網綁定狀態，驗證碼請留空或隨意。普通登錄和註冊接口已被關閉，請使用戰網登錄入口]]></item>
+			</item>
+		</item>
+		<item id="installfile"><![CDATA[install.php]]></item>
+		<item id="uninstallfile"><![CDATA[uninstall.php]]></item>
+	</item>
+</root>
