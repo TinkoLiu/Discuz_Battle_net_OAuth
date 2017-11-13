@@ -1,0 +1,153 @@
+{subtemplate common/header}
+<style type="text/css">
+.whole{width:65%; margin:0 auto}
+.pt20{padding-top:30px}
+.tdside{width:100px; height:60px; text-align:center; border-right:1px solid #f2f2f2; text-align:right; padding-right:30px}
+.tdborder{ border-bottom:1px solid #f2f2f2}
+.tdvalue{padding-left:60px}
+.tdinput{width:240px; height:22px; line-height:22px}
+</style>
+<div class="mn" style="padding-top:20px;">
+	<div class="bm" style="padding:0 0 20px;">
+		<div class="bm_h bbs">
+			<h3 class="xs2">{lang ga_bnet:bind_bnet}</h3>
+		</div>
+		<ul class="tb cl whole pt20">&nbsp;{lang ga_bnet:battletag}{$_SESSION["ga_bnet"]["accInfo"]["battletag"]}
+			<li id="one1" class="a" onclick="ga_setTab('one',1,2)"><a href="javascript:;">{lang ga_bnet:bind_old_user}</a></li>
+			<li id="one2" onclick="ga_setTab('one',2,2)"><a href="javascript:;">{lang ga_bnet:bind_new_user}</a></li>
+		</ul>
+		<div id="con_one_1" class="whole">
+			<form id="binda" name="binda" action='plugin.php?id=ga_bnet:connect&op=bindnew&style=0&state={$formhash}' method="post">
+				<table style="margin-top:20px" width="100%">
+					<tr>
+						<td class="tdside tdborder">{lang ga_bnet:username}</td><td colspan="2" class="tdborder tdvalue"><input type="text" name="ga_username" id="nameone1" value="" class="tdinput" /><span class="rq">*</span></td>
+					</tr>
+					<tr>
+						<td class="tdside tdborder">{lang ga_bnet:password}</td><td colspan="2" class="tdborder tdvalue"><input type="password" name="ga_password" value="" class="tdinput" /><span class="rq">*</span></td>
+					</tr>
+					<tr>
+						<td colspan="3" align="center"><input type="button" class="pn pnc" value=" {lang ga_bnet:submit} " onclick="ga_bind('binda')" style="width:50px;margin:30px" /></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<div id="con_one_2" class="whole" style="display:none">
+			<form id="bindb" name="bindb" action='plugin.php?id=ga_bnet:connect&op=bindnew&style=1&state={$formhash}' method="post">
+				<table style="margin-top:20px" width="100%">
+					<tr>
+						<td class="tdside tdborder">{lang ga_bnet:username}</td><td colspan="2" class="tdborder tdvalue"><input type="text" name="ga_username" class="tdinput" id="nameone2" /><span class="rq">*</span></td>
+					</tr>
+					<tr>
+						<td class="tdside tdborder">{lang ga_bnet:password}</td><td colspan="2" class="tdborder tdvalue"><input type="password" name="ga_password" id="psdone2" value="" class="tdinput" /><span class="rq">*</span></td>
+					</tr>
+					<tr>
+						<td class="tdside tdborder">{lang ga_bnet:repassword}</td><td colspan="2" class="tdborder tdvalue"><input type="password" name="ga_repassword" value="" class="tdinput" /><span class="rq">*</span></td>
+					</tr>
+					<tr>
+						<td class="tdside tdborder">{lang ga_bnet:email}</td><td colspan="2" class="tdborder tdvalue"><input type="text" name="ga_email" class="tdinput" /><span class="rq">*</span></td>
+					</tr>
+					<tr>
+						<td colspan="3" align="center"><input type="button" class="pn pnc" value=" {lang ga_bnet:submit} " onclick="ga_bind('bindb')" style="width:50px;margin:30px" /></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
+<div id="bind_status" style="display:none"></div>
+<script type="text/javascript">
+    ga_setTab('one', 2, 2);
+	function ga_setTab(name, cursel, n)
+	{
+		for(i=1; i<=n; i++)
+		{
+			var menu = document.getElementById(name + i);
+			var con = document.getElementById("con_" + name + "_" + i);
+			menu.className = (i == cursel ? "a" : "");
+			con.style.display = (i == cursel ? "block" : "none");
+		}
+
+		$('name' + name + cursel).focus();
+
+	}
+	function ga_bind(formid) {
+		$('bind_status').innerHTML = '';
+		if(checkblank(formid) == false){
+			showDialog('{lang ga_bnet:typeall}');
+			return;
+		}
+		ajaxpost(formid, 'bind_status', 'bind_status', '', '', ga_bind_back);
+	}
+	function ga_bind_back()
+	{
+		var res = $('bind_status').innerHTML;
+		switch(res)
+		{
+			case '-1':
+				showDialog('{lang ga_bnet:illegal_post}', 'alert');
+				break;
+			case '0':
+				showDialog('{lang ga_bnet:bind_success}', 'right', '', redirect);
+				break;
+			case '1':
+				showDialog('{lang ga_bnet:bind_failure}{lang ga_bnet:user_not_found}', 'alert');
+				break;
+			case '2':
+				showDialog('{lang ga_bnet:bind_failure}{lang ga_bnet:wrong_password}', 'alert');
+				break;
+			case '3':
+				showDialog('{lang ga_bnet:bind_failure}{lang ga_bnet:bind_edyet}', 'alert');
+				break;
+			case '4':
+				showDialog('{lang ga_bnet:bind_failure}{lang ga_bnet:fatal_error}', 'alert');
+				break;
+			case '10':
+				showDialog('{lang ga_bnet:bind_success}', 'right', '', redirect);
+				break;
+			case '11':
+				showDialog('{lang ga_bnet:bind_failure}{lang ga_bnet:username_duplicate}', 'alert');
+				break;
+			case '12':
+				showDialog('{lang ga_bnet:bind_failure}{lang ga_bnet:members_add_illegal}', 'alert');
+				break;
+			case '13':
+				showDialog('{lang ga_bnet:bind_failure}{lang ga_bnet:members_username_protect}', 'alert');
+				break;
+			case '14':
+				showDialog('{lang ga_bnet:bind_failure}{lang ga_bnet:members_email_illegal}', 'alert');
+				break;
+			case '15':
+				showDialog('{lang ga_bnet:bind_failure}{lang ga_bnet:members_email_domain_illegal}', 'alert');
+				break;
+			case '16':
+				showDialog('{lang ga_bnet:bind_failure}{lang ga_bnet:members_email_duplicate}', 'alert');
+				break;
+			case '17':
+				showDialog('{lang ga_bnet:bind_failure}{lang ga_bnet:members_add_passwordwrong}', 'alert');
+				break;
+			default:
+				showDialog(res);
+				break;
+		}
+	}
+	function redirect() {
+	    location.href = '{$referer}';
+	}
+	function checkblank(form) {
+		var controls;
+		var obj=form;
+		if(form == 'binda') {
+			controls = new Array('ga_username', 'ga_password');
+		} else {
+			controls = new Array('ga_username', 'ga_password', 'ga_repassword', 'ga_email');
+		}
+		for(i=0; i<controls.length; i++) {
+			obj = eval("document." + form + '.' + controls[i]);
+			if(obj.value == '') {
+				return false;
+			}
+		}
+		return true;
+	}
+</script>
+{subtemplate common/footer}

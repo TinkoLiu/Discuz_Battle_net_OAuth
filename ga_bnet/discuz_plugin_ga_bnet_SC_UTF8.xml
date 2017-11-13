@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
+	<item id="Version"><![CDATA[X2,X2.5,X3,X3.1,X3.2,X3.3,X3.4]]></item>
+	<item id="Time"><![CDATA[2017-11-08 18:12]]></item>
+	<item id="From"><![CDATA[地精研究院 (http://bbs.islga.org/)]]></item>
+	<item id="Data">
+		<item id="plugin">
+			<item id="available"><![CDATA[1]]></item>
+			<item id="adminid"><![CDATA[1]]></item>
+			<item id="name"><![CDATA[战网登录]]></item>
+			<item id="identifier"><![CDATA[ga_bnet]]></item>
+			<item id="description"><![CDATA[使用战网登录帐号一键登录到论坛]]></item>
+			<item id="datatables"><![CDATA[]]></item>
+			<item id="directory"><![CDATA[ga_bnet/]]></item>
+			<item id="copyright"><![CDATA[Tinko @ Goblin Academy]]></item>
+			<item id="version"><![CDATA[1.0.0]]></item>
+			<item id="__modules">
+				<item id="0">
+					<item id="name"><![CDATA[bnet]]></item>
+					<item id="menu"><![CDATA[]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[11]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="1">
+					<item id="name"><![CDATA[disconnect]]></item>
+					<item id="menu"><![CDATA[绑定战网账号]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[7]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="version"><![CDATA[X2,X2.5,X3,X3.1,X3.2,X3.3,X3.4]]></item>
+		<item id="var">
+			<item id="0">
+				<item id="displayorder"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[是否显示战网登录按钮]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[show_login]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="1">
+				<item id="displayorder"><![CDATA[2]]></item>
+				<item id="title"><![CDATA[是否显示战网绑定按钮]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[show_bind]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="2">
+				<item id="displayorder"><![CDATA[3]]></item>
+				<item id="title"><![CDATA[Key]]></item>
+				<item id="description"><![CDATA[这里填写战网开放平台申请来的 Key]]></item>
+				<item id="variable"><![CDATA[Bnet_Key]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="3">
+				<item id="displayorder"><![CDATA[4]]></item>
+				<item id="title"><![CDATA[Secret]]></item>
+				<item id="description"><![CDATA[这里填写战网开放平台申请来的 Secret]]></item>
+				<item id="variable"><![CDATA[Bnet_Secret]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="4">
+				<item id="displayorder"><![CDATA[5]]></item>
+				<item id="title"><![CDATA[新建用户所属用户组]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[group]]></item>
+				<item id="type"><![CDATA[group]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="5">
+				<item id="displayorder"><![CDATA[6]]></item>
+				<item id="title"><![CDATA[新建用户赠送积分]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[credit]]></item>
+				<item id="type"><![CDATA[extcredit]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="6">
+				<item id="displayorder"><![CDATA[7]]></item>
+				<item id="title"><![CDATA[新建用户赠送积分数量]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[credit_quan]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+		</item>
+		<item id="language">
+			<item id="scriptlang">
+				<item id="Authorization_Error"><![CDATA[战网授权签名错误，请重新登录授权！]]></item>
+				<item id="bnet_login"><![CDATA[用战网账号登录]]></item>
+				<item id="bnet_login_bind"><![CDATA[战网登录绑定]]></item>
+				<item id="bind_bnet"><![CDATA[绑定战网账号]]></item>
+				<item id="ga_bnet_tip"><![CDATA[只需一步，快速开始]]></item>
+				<item id="chn_bnet_user_before_bind"><![CDATA[当前战网账号已绑定论坛其它用户，要想将当前论坛用户绑定战网账号，您必须先解绑现在已经绑定的论坛账号。]]></item>
+				<item id="bind_success"><![CDATA[您的战网账号已成功绑定论坛用户。]]></item>
+				<item id="failure_bind_bnet_user"><![CDATA[系统出错，绑定失败，请重试！]]></item>
+				<item id="notbinded"><![CDATA[当前帐户未绑定战网账号！]]></item>
+				<item id="disbind_success"><![CDATA[解除绑定成功！]]></item>
+				<item id="disbind"><![CDATA[解除绑定]]></item>
+				<item id="bnet_invalid_token"><![CDATA[战网返回 Token 异常，请重试。若反复发生此情况，请联系头目。]]></item>
+				<item id="bnet_user_info_error"><![CDATA[战网返回用户数据异常，可能是战网 API 故障或站点服务器无法连接战网 Amazon AWS ，请重试。若反复发生此情况，请联系头目。]]></item>
+				<item id="wrong_formhash"><![CDATA[发生了一点小错误，链接过期，准备跳回主页，重新点击即可，无需惊慌……]]></item>
+				<item id="invalid_bnet_region"><![CDATA[指定了无效的战网服务器。]]></item>
+				<item id="bnet_region_cn"><![CDATA[中国]]></item>
+				<item id="bnet_region_us"><![CDATA[美国]]></item>
+				<item id="bnet_region_eu"><![CDATA[欧洲]]></item>
+				<item id="bnet_region_kr"><![CDATA[韩国]]></item>
+				<item id="bnet_region_tw"><![CDATA[台湾]]></item>
+				<item id="bnet_region_sea"><![CDATA[东南亚]]></item>
+				<item id="bnet_seccode_name"><![CDATA[战网绑定状态]]></item>
+				<item id="bnet_seccode_description"><![CDATA[使用战网绑定状态进行验证]]></item>
+				<item id="bnet_seccode_copyright"><![CDATA[Tinko @ Goblin Academy]]></item>
+				<item id="bnet_seccode_echo_frontend"><![CDATA[战网绑定状态验证已启用，系统将验证您的战网绑定状态，验证码请留空或随意。普通登录和注册接口已被关闭，请使用战网登录入口]]></item>
+			</item>
+			<item id="templatelang">
+				<item id="nowbinded"><![CDATA[当前已绑定战网账号：]]></item>
+				<item id="disbind"><![CDATA[解除绑定]]></item>
+				<item id="invalid_bnet_region"><![CDATA[指定了无效的战网服务器。]]></item>
+				<item id="bnet_region_cn"><![CDATA[中国]]></item>
+				<item id="bnet_region_us"><![CDATA[美国]]></item>
+				<item id="bnet_region_eu"><![CDATA[欧洲]]></item>
+				<item id="bnet_region_kr"><![CDATA[韩国]]></item>
+				<item id="bnet_region_tw"><![CDATA[台湾]]></item>
+				<item id="bnet_region_sea"><![CDATA[东南亚]]></item>
+				<item id="user_set_nav_bind"><![CDATA[点击按钮，立刻绑定战网账号]]></item>
+				<item id="bind_bnet"><![CDATA[绑定战网账号]]></item>
+				<item id="battletag"><![CDATA[战网账号：]]></item>
+				<item id="bind_old_user"><![CDATA[绑定我在本站的用户]]></item>
+				<item id="bind_new_user"><![CDATA[在本站创建新的用户并绑定]]></item>
+				<item id="username"><![CDATA[用户名]]></item>
+				<item id="password"><![CDATA[密码]]></item>
+				<item id="repassword"><![CDATA[确认密码]]></item>
+				<item id="email"><![CDATA[邮箱]]></item>
+				<item id="submit"><![CDATA[提交]]></item>
+				<item id="typeall"><![CDATA[请填写所有内容。]]></item>
+				<item id="illegal_post"><![CDATA[所提交的数据有非法内容。]]></item>
+				<item id="bind_success"><![CDATA[您的战网账号已成功绑定论坛用户。]]></item>
+				<item id="bind_failure"><![CDATA[绑定失败！]]></item>
+				<item id="user_not_found"><![CDATA[用户不存在！]]></item>
+				<item id="wrong_password"><![CDATA[密码不正确！]]></item>
+				<item id="bind_edyet"><![CDATA[重复绑定，该战网账号已绑定其他论坛用户，或该论坛用户绑定了其它战网账号！]]></item>
+				<item id="fatal_error"><![CDATA[内部错误，请联系管理员！]]></item>
+				<item id="username_duplicate"><![CDATA[该用户名已存在，请更换用户名！]]></item>
+				<item id="members_add_illegal"><![CDATA[用户名包含敏感字符或被系统屏蔽！]]></item>
+				<item id="members_username_protect"><![CDATA[用户名包含被系统屏蔽的字符！]]></item>
+				<item id="members_email_illegal"><![CDATA[Email 地址无效！]]></item>
+				<item id="members_email_domain_illegal"><![CDATA[Email 包含不可使用的邮箱域名！]]></item>
+				<item id="members_email_duplicate"><![CDATA[该 Email 地址已经被注册！]]></item>
+				<item id="members_add_passwordwrong"><![CDATA[两次密码不一致！]]></item>
+				<item id="bnet_seccode_name"><![CDATA[战网绑定状态]]></item>
+				<item id="bnet_seccode_description"><![CDATA[使用战网绑定状态进行验证]]></item>
+				<item id="bnet_seccode_copyright"><![CDATA[Tinko @ Goblin Academy]]></item>
+				<item id="bnet_seccode_echo_frontend"><![CDATA[战网绑定状态验证已启用，系统将验证您的战网绑定状态，验证码请留空或随意。普通登录和注册接口已被关闭，请使用战网登录入口]]></item>
+			</item>
+		</item>
+		<item id="installfile"><![CDATA[install.php]]></item>
+		<item id="uninstallfile"><![CDATA[uninstall.php]]></item>
+	</item>
+</root>

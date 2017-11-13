@@ -1,0 +1,16 @@
+<p class="bm2_b bw0 hm" style="padding-top:100px">
+    <!--{if $binded}-->
+        <a href="plugin.php?id=ga_bnet:connect&op=disconnect&state={FORMHASH}"><img src="source/plugin/ga_bnet/images/disconnect.png" align="absmiddle" style="cursor:pointer"><br>{lang ga_bnet:disbind}</a><br /><br />
+        <span class="mtn xg1">{lang ga_bnet:nowbinded}{$regioni18n} {$battletag}</span>
+    <!--{else}-->
+        <a href="javascript:void(0);" onclick="window.location='plugin.php?id=ga_bnet:connect&op=bind&region='+document.getElementById('ga_bnet_region_select_setting').value+'&state={FORMHASH}'"><img src="source/plugin/ga_bnet/images/bind.jpg" align="absmiddle" style="height:30px;cursor:pointer"></a><select style="height: 30px;" name="ga_bnet_region_select_setting" id="ga_bnet_region_select_setting">
+	<option value="cn">{lang ga_bnet:bnet_region_cn}</option>
+	<option value="us">{lang ga_bnet:bnet_region_us}</option>
+	<option value="eu">{lang ga_bnet:bnet_region_eu}</option>
+	<option value="tw">{lang ga_bnet:bnet_region_tw}</option>
+	<option value="kr">{lang ga_bnet:bnet_region_kr}</option>
+	<option value="sea">{lang ga_bnet:bnet_region_sea}</option>
+</select><br />
+        <span class="mtn xg1">{lang ga_bnet:user_set_nav_bind}</span>
+    <!--{/if}-->
+</p>
