@@ -92,7 +92,7 @@ if ($op == 'dzconnect') {
 		'forumuid' => $_G['uid'],
 		'oauth_token' => htmlspecialchars($_SESSION["ga_bnet"]["tokenInfo"]["token"]),
 		'bnet_id' => intval($_SESSION["ga_bnet"]["accInfo"]["id"]),
-		'battletag' => htmlspecialchars($_SESSION["ga_bnet"]["accInfo"]["battletag"]),
+		'battletag' => diconv(htmlspecialchars($_SESSION["ga_bnet"]["accInfo"]["battletag"]), 'UTF-8'),
 		'bindtime' => TIMESTAMP,
 		'region' => $_SESSION["ga_bnet"]["region"],
 	);
@@ -151,7 +151,7 @@ if ($op == 'dzconnect') {
 								'forumuid' => $rs['uid'],
 								'oauth_token' => htmlspecialchars($_SESSION["ga_bnet"]["tokenInfo"]["token"]),
 								'bnet_id' => intval($_SESSION["ga_bnet"]["accInfo"]["id"]),
-								'battletag' => htmlspecialchars($_SESSION["ga_bnet"]["accInfo"]["battletag"]),
+								'battletag' => diconv(htmlspecialchars($_SESSION["ga_bnet"]["accInfo"]["battletag"]), 'UTF-8'),
 								'bindtime' => TIMESTAMP,
 								'region' => $_SESSION["ga_bnet"]["region"],
 							);
@@ -224,7 +224,7 @@ if ($op == 'dzconnect') {
 								'forumuid' => $uid,
 								'oauth_token' => htmlspecialchars($_SESSION["ga_bnet"]["tokenInfo"]["token"]),
 								'bnet_id' => intval($_SESSION["ga_bnet"]["accInfo"]["id"]),
-								'battletag' => htmlspecialchars($_SESSION["ga_bnet"]["accInfo"]["battletag"]),
+								'battletag' => diconv(htmlspecialchars($_SESSION["ga_bnet"]["accInfo"]["battletag"]), 'UTF-8'),
 								'bindtime' => TIMESTAMP,
 								'region' => $_SESSION["ga_bnet"]["region"],
 							);
