@@ -19,5 +19,6 @@ If you decided using the Battle.net account binding status as the captcha, pleas
 * When checking on posting, only the users who bound the Battle.net account can post and without any further captcha.
 * When checking on login, no user can login through his/her username and password (including the administrator) . Users can only login through Battle.net. The admin console (`admin.php`) won't be influenced by this.
 * When checking on registration, nobody can get registered. The only way for new user is login with Battle.net and create a new account after OAuth authentication flow.
+* You can still get login or registered through other plugin , or other app in U-Center if login status was synced to the Discuz!.
 * **When you are heading for disabling or uninstalling the plugin, do remember selecting another kind of captcha in your Discuz! admin console before you do so.**
 * **Make sure you can login your forum through the Battle.net before you switch to this captcha.**
