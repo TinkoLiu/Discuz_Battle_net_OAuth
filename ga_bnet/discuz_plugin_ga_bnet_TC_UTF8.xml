@@ -65,7 +65,7 @@
 			<item id="2">
 				<item id="displayorder"><![CDATA[3]]></item>
 				<item id="title"><![CDATA[Key]]></item>
-				<item id="description"><![CDATA[這裏填寫戰網開放平臺申請來的 Key]]></item>
+				<item id="description"><![CDATA[這裡填寫戰網開放平臺申請來的 Key]]></item>
 				<item id="variable"><![CDATA[Bnet_Key]]></item>
 				<item id="type"><![CDATA[text]]></item>
 				<item id="value"><![CDATA[]]></item>
@@ -74,7 +74,7 @@
 			<item id="3">
 				<item id="displayorder"><![CDATA[4]]></item>
 				<item id="title"><![CDATA[Secret]]></item>
-				<item id="description"><![CDATA[這裏填寫戰網開放平臺申請來的 Secret]]></item>
+				<item id="description"><![CDATA[這裡填寫戰網開放平臺申請來的 Secret]]></item>
 				<item id="variable"><![CDATA[Bnet_Secret]]></item>
 				<item id="type"><![CDATA[text]]></item>
 				<item id="value"><![CDATA[]]></item>
@@ -121,8 +121,8 @@
 				<item id="notbinded"><![CDATA[當前帳戶未綁定戰網賬號！]]></item>
 				<item id="disbind_success"><![CDATA[解除綁定成功！]]></item>
 				<item id="disbind"><![CDATA[解除綁定]]></item>
-				<item id="bnet_invalid_token"><![CDATA[戰網返回 Token 異常，請重試。若反覆發生此情況，請聯繫頭目。]]></item>
-				<item id="bnet_user_info_error"><![CDATA[戰網返回用戶數據異常，可能是戰網 API 故障或站點服務器無法連接戰網 Amazon AWS ，請重試。若反覆發生此情況，請聯繫頭目。]]></item>
+				<item id="bnet_invalid_token"><![CDATA[戰網返回 Token 異常，請重試。若反覆發生此情況，請聯繫管理員。]]></item>
+				<item id="bnet_user_info_error"><![CDATA[戰網返回用戶數據異常，可能是戰網 API 故障或站點服務器無法連接戰網 Amazon AWS ，請重試。若反覆發生此情況，請聯繫管理員。]]></item>
 				<item id="wrong_formhash"><![CDATA[發生了一點小錯誤，鏈接過期，準備跳回主頁，重新點擊即可，無需驚慌……]]></item>
 				<item id="invalid_bnet_region"><![CDATA[指定了無效的戰網服務器。]]></item>
 				<item id="bnet_region_cn"><![CDATA[中國]]></item>
@@ -134,7 +134,7 @@
 				<item id="bnet_seccode_name"><![CDATA[戰網綁定狀態]]></item>
 				<item id="bnet_seccode_description"><![CDATA[使用戰網綁定狀態進行驗證]]></item>
 				<item id="bnet_seccode_copyright"><![CDATA[Tinko @ Goblin Academy]]></item>
-				<item id="bnet_seccode_echo_frontend"><![CDATA[戰網綁定狀態驗證已啓用，系統將驗證您的戰網綁定狀態，驗證碼請留空或隨意。普通登錄和註冊接口已被關閉，請使用戰網登錄入口]]></item>
+				<item id="bnet_seccode_echo_frontend"><![CDATA[戰網綁定狀態驗證已啟用，系統將驗證您的戰網綁定狀態，驗證碼請留空或隨意。普通登錄和註冊接口已被關閉，請使用戰網登錄入口]]></item>
 			</item>
 			<item id="templatelang">
 				<item id="nowbinded"><![CDATA[當前已綁定戰網賬號：]]></item>
@@ -174,7 +174,7 @@
 				<item id="bnet_seccode_name"><![CDATA[戰網綁定狀態]]></item>
 				<item id="bnet_seccode_description"><![CDATA[使用戰網綁定狀態進行驗證]]></item>
 				<item id="bnet_seccode_copyright"><![CDATA[Tinko @ Goblin Academy]]></item>
-				<item id="bnet_seccode_echo_frontend"><![CDATA[戰網綁定狀態驗證已啓用，系統將驗證您的戰網綁定狀態，驗證碼請留空或隨意。普通登錄和註冊接口已被關閉，請使用戰網登錄入口]]></item>
+				<item id="bnet_seccode_echo_frontend"><![CDATA[戰網綁定狀態驗證已啟用，系統將驗證您的戰網綁定狀態，驗證碼請留空或隨意。普通登錄和註冊接口已被關閉，請使用戰網登錄入口]]></item>
 				<item id="islga_github_info"><![CDATA[GA 地精研究院 開源項目。 Tinko@GA 執行開發。]]></item>
 			</item>
 		</item>

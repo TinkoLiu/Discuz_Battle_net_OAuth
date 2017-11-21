@@ -121,8 +121,8 @@
 				<item id="notbinded"><![CDATA[当前帐户未绑定战网账号！]]></item>
 				<item id="disbind_success"><![CDATA[解除绑定成功！]]></item>
 				<item id="disbind"><![CDATA[解除绑定]]></item>
-				<item id="bnet_invalid_token"><![CDATA[战网返回 Token 异常，请重试。若反复发生此情况，请联系头目。]]></item>
-				<item id="bnet_user_info_error"><![CDATA[战网返回用户数据异常，可能是战网 API 故障或站点服务器无法连接战网 Amazon AWS ，请重试。若反复发生此情况，请联系头目。]]></item>
+				<item id="bnet_invalid_token"><![CDATA[战网返回 Token 异常，请重试。若反复发生此情况，请联系管理员。]]></item>
+				<item id="bnet_user_info_error"><![CDATA[战网返回用户数据异常，可能是战网 API 故障或站点服务器无法连接战网 Amazon AWS ，请重试。若反复发生此情况，请联系管理员。]]></item>
 				<item id="wrong_formhash"><![CDATA[发生了一点小错误，链接过期，准备跳回主页，重新点击即可，无需惊慌……]]></item>
 				<item id="invalid_bnet_region"><![CDATA[指定了无效的战网服务器。]]></item>
 				<item id="bnet_region_cn"><![CDATA[中国]]></item>
