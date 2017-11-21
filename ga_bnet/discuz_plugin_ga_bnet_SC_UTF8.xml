@@ -175,6 +175,7 @@
 				<item id="bnet_seccode_description"><![CDATA[使用战网绑定状态进行验证]]></item>
 				<item id="bnet_seccode_copyright"><![CDATA[Tinko @ Goblin Academy]]></item>
 				<item id="bnet_seccode_echo_frontend"><![CDATA[战网绑定状态验证已启用，系统将验证您的战网绑定状态，验证码请留空或随意。普通登录和注册接口已被关闭，请使用战网登录入口]]></item>
+				<item id="islga_github_info"><![CDATA[GA 地精研究院 开源项目。 Tinko@GA 执行开发。]]></item>
 			</item>
 		</item>
 		<item id="installfile"><![CDATA[install.php]]></item>
