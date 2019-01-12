@@ -131,10 +131,6 @@
 				<item id="bnet_region_kr"><![CDATA[韩国]]></item>
 				<item id="bnet_region_tw"><![CDATA[台湾]]></item>
 				<item id="bnet_region_sea"><![CDATA[东南亚]]></item>
-				<item id="bnet_seccode_name"><![CDATA[战网绑定状态]]></item>
-				<item id="bnet_seccode_description"><![CDATA[使用战网绑定状态进行验证]]></item>
-				<item id="bnet_seccode_copyright"><![CDATA[Tinko @ Goblin Academy]]></item>
-				<item id="bnet_seccode_echo_frontend"><![CDATA[战网绑定状态验证已启用，系统将验证您的战网绑定状态，验证码请留空或随意。普通登录和注册接口已被关闭，请使用战网登录入口]]></item>
 			</item>
 			<item id="templatelang">
 				<item id="nowbinded"><![CDATA[当前已绑定战网账号：]]></item>
@@ -171,10 +167,6 @@
 				<item id="members_email_domain_illegal"><![CDATA[Email 包含不可使用的邮箱域名！]]></item>
 				<item id="members_email_duplicate"><![CDATA[该 Email 地址已经被注册！]]></item>
 				<item id="members_add_passwordwrong"><![CDATA[两次密码不一致！]]></item>
-				<item id="bnet_seccode_name"><![CDATA[战网绑定状态]]></item>
-				<item id="bnet_seccode_description"><![CDATA[使用战网绑定状态进行验证]]></item>
-				<item id="bnet_seccode_copyright"><![CDATA[Tinko @ Goblin Academy]]></item>
-				<item id="bnet_seccode_echo_frontend"><![CDATA[战网绑定状态验证已启用，系统将验证您的战网绑定状态，验证码请留空或随意。普通登录和注册接口已被关闭，请使用战网登录入口]]></item>
 				<item id="islga_github_info"><![CDATA[GA 地精研究院 开源项目。 Tinko@GA 执行开发。]]></item>
 			</item>
 		</item>
