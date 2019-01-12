@@ -64,8 +64,8 @@
 			</item>
 			<item id="2">
 				<item id="displayorder"><![CDATA[3]]></item>
-				<item id="title"><![CDATA[Key]]></item>
-				<item id="description"><![CDATA[這裡填寫戰網開放平臺申請來的 Key]]></item>
+				<item id="title"><![CDATA[Client ID]]></item>
+				<item id="description"><![CDATA[這裡填寫戰網開放平臺申請來的 Client ID]]></item>
 				<item id="variable"><![CDATA[Bnet_Key]]></item>
 				<item id="type"><![CDATA[text]]></item>
 				<item id="value"><![CDATA[]]></item>
@@ -73,8 +73,8 @@
 			</item>
 			<item id="3">
 				<item id="displayorder"><![CDATA[4]]></item>
-				<item id="title"><![CDATA[Secret]]></item>
-				<item id="description"><![CDATA[這裡填寫戰網開放平臺申請來的 Secret]]></item>
+				<item id="title"><![CDATA[Client Secret]]></item>
+				<item id="description"><![CDATA[這裡填寫戰網開放平臺申請來的 Client Secret]]></item>
 				<item id="variable"><![CDATA[Bnet_Secret]]></item>
 				<item id="type"><![CDATA[text]]></item>
 				<item id="value"><![CDATA[]]></item>
