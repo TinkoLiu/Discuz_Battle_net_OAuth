@@ -16,25 +16,26 @@ class bnetApiUrl {
 			"eu" => "https://eu.battle.net/oauth",
 			"kr" => "https://apac.battle.net/oauth",
 			"tw" => "https://apac.battle.net/oauth",
-			"sea" => "https://us.battle.net/oauth"],
+			"sea" => "https://us.battle.net/oauth"
+		],
 		"api" => [
-			"cn" => "https://api.battlenet.com.cn",
-			"us" => "https://us.api.battle.net",
-			"eu" => "https://eu.api.battle.net",
-			"kr" => "https://kr.api.battle.net",
-			"tw" => "https://tw.api.battle.net",
-			"sea" => "https://us.api.battle.net"],
+			"cn" => "https://gateway.battlenet.com.cn/",
+			"us" => "https://us.api.blizzard.com",
+			"eu" => "https://eu.api.blizzard.com",
+			"kr" => "https://kr.api.blizzard.com",
+			"tw" => "https://tw.api.blizzard.com",
+			"sea" => "https://us.api.blizzard.com"
+		],
 	];
 	private $services = [
 		"oauth" => [
 			"auth" => "/authorize?",
 			"token" => "/token?",
 			"check_token" => "/check_token?",
+			"userinfo" => "/userinfo?",
 		],
 		"api" => [
-			"account" => [
-				"user" => "/account/user?",
-			],
+
 		],
 	];
 	function getUrl($region) {
@@ -42,7 +43,7 @@ class bnetApiUrl {
 			"authURL" => $this->host["oauth"][$region] . $this->services["oauth"]["auth"],
 			"tokenURL" => $this->host["oauth"][$region] . $this->services["oauth"]["token"],
 			"checkTokenURL" => $this->host["oauth"][$region] . $this->services["oauth"]["check_token"],
-			"userInfoURL" => $this->host["api"][$region] . $this->services["api"]["account"]["user"],
+			"userInfoURL" => $this->host["oauth"][$region] . $this->services["oauth"]["account"]["user"],
 		];
 	}
 }
@@ -253,7 +254,7 @@ if ($op == 'dzconnect') {
 	$params = array(
 		'response_type' => 'code',
 		'client_id' => $_G['cache']['plugin']['ga_bnet']['Bnet_Key'],
-		'scope' => 'sc2.profile',
+		'scope' => 'sc2.profile account.public',
 		'state' => FORMHASH,
 		'redirect_uri' => $redirect_uri,
 	);
@@ -307,9 +308,7 @@ function get_oauth_token($code) {
 	global $_G;
 	$params = array(
 		'grant_type' => 'authorization_code',
-		'client_id' => $_G['cache']['plugin']['ga_bnet']['Bnet_Key'],
-		'client_secret' => $_G['cache']['plugin']['ga_bnet']['Bnet_Secret'],
-		'scope' => 'sc2.profile',
+		'scope' => 'sc2.profile,account.public',
 		'code' => $code,
 		'redirect_uri' => $_SESSION["ga_bnet"]["redirect_uri"],
 	);
@@ -319,6 +318,7 @@ function get_oauth_token($code) {
 	curl_setopt($curl, CURLOPT_URL, $url);
 	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($curl, CURLOPT_POST, 1);
+	curl_setopt($curl, CURLOPT_USERPWD, $_G['cache']['plugin']['ga_bnet']['Bnet_Key'] . ":" . $_G['cache']['plugin']['ga_bnet']['Bnet_Secret']);
 	curl_setopt($curl, CURLOPT_POSTFIELDS, $params);
 	$result = curl_exec($curl);
 	$result_obj = json_decode($result, true);
