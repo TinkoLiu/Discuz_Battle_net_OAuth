@@ -43,7 +43,7 @@ class bnetApiUrl {
 			"authURL" => $this->host["oauth"][$region] . $this->services["oauth"]["auth"],
 			"tokenURL" => $this->host["oauth"][$region] . $this->services["oauth"]["token"],
 			"checkTokenURL" => $this->host["oauth"][$region] . $this->services["oauth"]["check_token"],
-			"userInfoURL" => $this->host["oauth"][$region] . $this->services["oauth"]["account"]["user"],
+			"userInfoURL" => $this->host["oauth"][$region] . $this->services["oauth"]["userinfo"],
 		];
 	}
 }
@@ -308,7 +308,7 @@ function get_oauth_token($code) {
 	global $_G;
 	$params = array(
 		'grant_type' => 'authorization_code',
-		'scope' => 'sc2.profile,account.public',
+		'scope' => 'sc2.profile account.public',
 		'code' => $code,
 		'redirect_uri' => $_SESSION["ga_bnet"]["redirect_uri"],
 	);
@@ -326,7 +326,7 @@ function get_oauth_token($code) {
 	$expires_in = $result_obj['expires_in'];
 	$expires_at = time() + $expires_in;
 	if (!$access_token || !$expires_in) {
-		runlog('ga_bnet_error', "GA_Bnet OAuth Failed. method:get_oauth_token API Request URL:" . $_SESSION["ga_bnet"]["url"]["tokenURL"] . " Combined param: code: " . $code . " redirect_uri: " . $_SESSION["ga_bnet"]["redirect_uri"] . " access_token json:" . $result . "SESSION ga_bnet:" . json_encode($_SESSION["ga_bnet"]));
+		runlog('ga_bnet_error', "GA_Bnet OAuth Failed. \r\tmethod:get_oauth_token API \r\tRequest URL:" . $_SESSION["ga_bnet"]["url"]["tokenURL"] . " \r\tCombined param: \r\t\tcode: " . $code . " \r\t\tredirect_uri: " . $_SESSION["ga_bnet"]["redirect_uri"] . " \r\t\taccess_token json:" . $result . "\r\t\tSESSION ga_bnet:" . json_encode($_SESSION["ga_bnet"]));
 		showmessage('ga_bnet:bnet_invalid_token', $_G['siteurl'], [], ['alert' => 'error']);
 	} else {
 		return [
@@ -351,7 +351,7 @@ function get_oauth_identity() {
 	$result = curl_exec($ch);
 	$result_obj = json_decode($result, true);
 	if (!$result_obj['id']) {
-		runlog('ga_bnet_error', "GA_Bnet OAuth Failed. method:get_oauth_identity API Request URL:" . $_SESSION["ga_bnet"]["url"]["userInfoURL"] . " Combined param: access_token: " . $_SESSION["ga_bnet"]["tokenInfo"]["token"] . " result json:" . $result . "SESSION ga_bnet:" . json_encode($_SESSION["ga_bnet"]));
+		runlog('ga_bnet_error', "GA_Bnet OAuth Failed. <br>Method:get_oauth_identity <br>API Request URL:" . $url . " <br>Combined param: <br>&emsp;access_token: " . $_SESSION["ga_bnet"]["tokenInfo"]["token"] . " <br>&emsp;result json:" . $result . "<br>&emsp;SESSION ga_bnet:" . json_encode($_SESSION["ga_bnet"]));
 		showmessage('ga_bnet:bnet_user_info_error', $_G['siteurl'], [], ['alert' => 'error']);
 	}
 	return $result_obj;
