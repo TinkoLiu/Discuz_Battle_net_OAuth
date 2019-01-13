@@ -2,7 +2,7 @@
 <root>
 	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
 	<item id="Version"><![CDATA[X2,X2.5,X3,X3.1,X3.2,X3.3,X3.4]]></item>
-	<item id="Time"><![CDATA[2017-11-08 18:12]]></item>
+	<item id="Time"><![CDATA[2019-01-13 23:18]]></item>
 	<item id="From"><![CDATA[地精研究院 (http://bbs.islga.org/)]]></item>
 	<item id="Data">
 		<item id="plugin">
@@ -14,7 +14,7 @@
 			<item id="datatables"><![CDATA[]]></item>
 			<item id="directory"><![CDATA[ga_bnet/]]></item>
 			<item id="copyright"><![CDATA[Tinko @ Goblin Academy]]></item>
-			<item id="version"><![CDATA[1.0.0]]></item>
+			<item id="version"><![CDATA[2.0.0]]></item>
 			<item id="__modules">
 				<item id="0">
 					<item id="name"><![CDATA[bnet]]></item>
@@ -33,6 +33,19 @@
 					<item id="menu"><![CDATA[綁定戰網賬號]]></item>
 					<item id="url"><![CDATA[]]></item>
 					<item id="type"><![CDATA[7]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="2">
+					<item id="name"><![CDATA[extinfo]]></item>
+					<item id="param"><![CDATA[]]></item>
+					<item id="menu"><![CDATA[擴展信息]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[3]]></item>
 					<item id="adminid"><![CDATA[0]]></item>
 					<item id="displayorder"><![CDATA[0]]></item>
 					<item id="navtitle"><![CDATA[]]></item>
@@ -131,6 +144,14 @@
 				<item id="bnet_region_kr"><![CDATA[韓國]]></item>
 				<item id="bnet_region_tw"><![CDATA[臺灣]]></item>
 				<item id="bnet_region_sea"><![CDATA[東南亞]]></item>
+				<item id="extinfo"><![CDATA[擴展信息]]></item>
+				<item id="redirect_uri"><![CDATA[回調地址]]></item>
+				<item id="redirect_uri_desc"><![CDATA[在申請暴雪接口時，需要提供此信息]]></item>
+				<item id="ext_notice"><![CDATA[注意事項！]]></item>
+				<item id="ext_notice_1"><![CDATA[所有綁定信息在插件卸載時將會清空，若要重裝插件，請考慮對 “ga_bnet” 數據表進行備份。]]></item>
+				<item id="ext_notice_2"><![CDATA[論壇登錄狀態與戰網登錄狀態無關，若要更換綁定，在解綁後需手動前往對應大區戰網註銷登錄，並非本插件設計 bug 。]]></item>
+				<item id="ext_notice_3"><![CDATA[本開源項目禁止修改前端個人設置頁下方的授權信息。]]></item>
+				<item id="ext_notice_4"><![CDATA[其它未盡事項及 bug 提交請至本插件 Github Repo]]></item>
 			</item>
 			<item id="templatelang">
 				<item id="nowbinded"><![CDATA[當前已綁定戰網賬號：]]></item>
@@ -142,6 +163,7 @@
 				<item id="bnet_region_kr"><![CDATA[韓國]]></item>
 				<item id="bnet_region_tw"><![CDATA[臺灣]]></item>
 				<item id="bnet_region_sea"><![CDATA[東南亞]]></item>
+				<item id="bind_license"><![CDATA[GA 地精研究院 開源項目。 Tinko@GA 執行開發。]]></item>
 				<item id="user_set_nav_bind"><![CDATA[點擊按鈕，立刻綁定戰網賬號]]></item>
 				<item id="bind_bnet"><![CDATA[綁定戰網賬號]]></item>
 				<item id="battletag"><![CDATA[戰網賬號：]]></item>
@@ -167,7 +189,6 @@
 				<item id="members_email_domain_illegal"><![CDATA[Email 包含不可使用的郵箱域名！]]></item>
 				<item id="members_email_duplicate"><![CDATA[該 Email 地址已經被註冊！]]></item>
 				<item id="members_add_passwordwrong"><![CDATA[兩次密碼不一致！]]></item>
-				<item id="islga_github_info"><![CDATA[GA 地精研究院 開源項目。 Tinko@GA 執行開發。]]></item>
 			</item>
 		</item>
 		<item id="installfile"><![CDATA[install.php]]></item>
