@@ -1,11 +1,15 @@
 <?php
-session_start();
+require_once libfile('function/cache');
+$sessvar = [];
 if (!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 $referer = dreferer();
 if (!isset($_G['cache']['plugin']['ga_bnet'])) {
 	loadcache('plugin');
+}
+if (!isset($_G['cache']['plugin']['ga_bnet']['session'])) {
+	$_G['cache']['plugin']['ga_bnet']['session'] = [];
 }
 
 class bnetApiUrl {
@@ -19,7 +23,7 @@ class bnetApiUrl {
 			"sea" => "https://us.battle.net/oauth"
 		],
 		"api" => [
-			"cn" => "https://gateway.battlenet.com.cn/",
+			"cn" => "https://gateway.battlenet.com.cn",
 			"us" => "https://us.api.blizzard.com",
 			"eu" => "https://eu.api.blizzard.com",
 			"kr" => "https://kr.api.blizzard.com",
@@ -48,30 +52,38 @@ class bnetApiUrl {
 	}
 }
 $op = htmlspecialchars(getgpc('op', 'G'));
+if ($op == 'echosession'){
+	print_r($_G['cache']['plugin']);
+	echo "<br><br><br>";
+	print_r($_G['cache']['plugin']['ga_bnet']);
+	die();
+}
 if (isset($_GET["region"])) {
 	$arr = new bnetApiUrl();
 	if ($_GET["region"] != "cn" && $_GET["region"] != "us" && $_GET["region"] != "eu" && $_GET["region"] != "kr" && $_GET["region"] != "tw" && $_GET["region"] != "sea") {
 		showmessage('ga_bnet:invalid_bnet_region', $_G['siteurl'], [], ['alert' => 'error']);
 	}
-	$_SESSION["ga_bnet"]["region"] = htmlspecialchars(getgpc('region', 'G'));
-	$_SESSION["ga_bnet"]["url"] = (array) $arr->getURL($_SESSION["ga_bnet"]["region"]);
+	$sessvar["region"] = htmlspecialchars(getgpc('region', 'G'));
+	$sessvar["url"] = (array) $arr->getURL($sessvar["region"]);
 }
 if ($op == 'dzconnect') {
 	$_GET['state'] != FORMHASH && showmessage('ga_bnet:wrong_formhash', $_G['siteurl'], [], ['alert' => 'info']);
-
+	$sessvar = $_G['cache']['plugin']['ga_bnet']['session'][$_G['sid']];
 	$oauth_code = htmlspecialchars(getgpc('code', 'G'));
-	$_SESSION["ga_bnet"]["tokenInfo"] = get_oauth_token($oauth_code);
-	$_SESSION["ga_bnet"]["accInfo"] = get_oauth_identity();
+	$sessvar["tokenInfo"] = get_oauth_token($oauth_code);
+	$sessvar["accInfo"] = get_oauth_identity();
 
-	$forumuid = DB::result_first('SELECT `forumuid` FROM ' . DB::table('ga_bnet') . " WHERE `bnet_id` = " . intval($_SESSION["ga_bnet"]["accInfo"]["id"]));
+	$forumuid = DB::result_first('SELECT `forumuid` FROM ' . DB::table('ga_bnet') . " WHERE `bnet_id` = " . intval($sessvar["accInfo"]["id"]));
 
 	if ($forumuid) {
 		$userinfo = array('uid' => $forumuid);
+		clearGASession();
 		ga_login($userinfo, getcookie('ga_refer'));
 	} else {
 		$formhash = formhash();
 		$navtitle = lang('plugin/ga_bnet', 'bind_bnet');
 		$referer = getcookie('ga_refer');
+		updateGASession($sessvar);
 		include template('ga_bnet:bindnew');
 	}
 } elseif ($op == 'bindconnect') {
@@ -80,10 +92,11 @@ if ($op == 'dzconnect') {
 	if (!$_G['uid']) {
 		dheader('Location:member.php?mod=logging&action=login');
 	}
+	$sessvar = $_G['cache']['plugin']['ga_bnet']['session'][$_G['sid']];
 	$oauth_code = getgpc('code', 'G');
-	$_SESSION["ga_bnet"]["tokenInfo"] = get_oauth_token($oauth_code);
-	$_SESSION["ga_bnet"]["accInfo"] = get_oauth_identity();
-	$forumuid = DB::result_first('SELECT `forumuid` FROM ' . DB::table('ga_bnet') . " WHERE `bnet_id` = " . intval($_SESSION["ga_bnet"]["accInfo"]["id"]));
+	$sessvar["tokenInfo"] = get_oauth_token($oauth_code);
+	$sessvar["accInfo"] = get_oauth_identity();
+	$forumuid = DB::result_first('SELECT `forumuid` FROM ' . DB::table('ga_bnet') . " WHERE `bnet_id` = " . intval($sessvar["accInfo"]["id"]));
 
 	if ($forumuid) {
 		showmessage('ga_bnet:chn_bnet_user_before_bind');
@@ -91,19 +104,18 @@ if ($op == 'dzconnect') {
 
 	$fields = array(
 		'forumuid' => $_G['uid'],
-		'oauth_token' => htmlspecialchars($_SESSION["ga_bnet"]["tokenInfo"]["token"]),
-		'bnet_id' => intval($_SESSION["ga_bnet"]["accInfo"]["id"]),
-		'battletag' => diconv(htmlspecialchars($_SESSION["ga_bnet"]["accInfo"]["battletag"]), 'UTF-8'),
+		'oauth_token' => htmlspecialchars($sessvar["tokenInfo"]["token"]),
+		'bnet_id' => intval($sessvar["accInfo"]["id"]),
+		'battletag' => diconv(htmlspecialchars($sessvar["accInfo"]["battletag"]), 'UTF-8'),
 		'bindtime' => TIMESTAMP,
-		'region' => $_SESSION["ga_bnet"]["region"],
+		'region' => $sessvar["region"],
 	);
-
+	clearGASession();
 	if (addbindinfo($fields)) {
 		showmessage('ga_bnet:bind_success', getcookie('ga_refer'));
 	} else {
 		showmessage('ga_bnet:failure_bind_bnet_user');
 	}
-
 } elseif ($op == 'disconnect') {
 	$_GET['state'] != FORMHASH && showmessage('ga_bnet:wrong_formhash', $_G['siteurl'], [], ['alert' => 'info']);
 
@@ -124,7 +136,7 @@ if ($op == 'dzconnect') {
 	if (submitcheck('ga_username', 1)) {
 		include template('common/header_ajax');
 		$style = intval(getgpc('style', 'G'));
-
+		$sessvar = $_G['cache']['plugin']['ga_bnet']['session'][$_G['sid']];
 		if ($style == '0') {
 			if (safecheck()) {
 				echo '-1';
@@ -136,7 +148,7 @@ if ($op == 'dzconnect') {
 				} else {
 					$uidfromun = ga_fetch_uid_by_username($ga_username);
 				}
-				$sql = 'SELECT `forumuid` FROM ' . DB::table('ga_bnet') . " WHERE `bnet_id` = '{$_SESSION["ga_bnet"]["accInfo"]["id"]}' OR `forumuid` = '{$uidfromun}'";
+				$sql = 'SELECT `forumuid` FROM ' . DB::table('ga_bnet') . " WHERE `bnet_id` = '{$sessvar["accInfo"]["id"]}' OR `forumuid` = '{$uidfromun}'";
 				$rs = DB::fetch_first($sql);
 				if (!empty($rs)) {
 					echo '3';
@@ -150,13 +162,14 @@ if ($op == 'dzconnect') {
 						if (md5(md5($ga_password) . $salt) == $rs['password']) {
 							$bind_u_info = array(
 								'forumuid' => $rs['uid'],
-								'oauth_token' => htmlspecialchars($_SESSION["ga_bnet"]["tokenInfo"]["token"]),
-								'bnet_id' => intval($_SESSION["ga_bnet"]["accInfo"]["id"]),
-								'battletag' => diconv(htmlspecialchars($_SESSION["ga_bnet"]["accInfo"]["battletag"]), 'UTF-8'),
+								'oauth_token' => htmlspecialchars($sessvar["tokenInfo"]["token"]),
+								'bnet_id' => intval($sessvar["accInfo"]["id"]),
+								'battletag' => diconv(htmlspecialchars($sessvar["accInfo"]["battletag"]), 'UTF-8'),
 								'bindtime' => TIMESTAMP,
-								'region' => $_SESSION["ga_bnet"]["region"],
+								'region' => $sessvar["region"],
 							);
 							$insertid = addbindinfo($bind_u_info);
+							clearGASession();
 							if ($insertid) {
 								$niuc_uinfo = array('uid' => $rs['uid']);
 								connect_login($niuc_uinfo);
@@ -223,11 +236,11 @@ if ($op == 'dzconnect') {
 							}
 							$bind_u_info = array(
 								'forumuid' => $uid,
-								'oauth_token' => htmlspecialchars($_SESSION["ga_bnet"]["tokenInfo"]["token"]),
-								'bnet_id' => intval($_SESSION["ga_bnet"]["accInfo"]["id"]),
-								'battletag' => diconv(htmlspecialchars($_SESSION["ga_bnet"]["accInfo"]["battletag"]), 'UTF-8'),
+								'oauth_token' => htmlspecialchars($sessvar["tokenInfo"]["token"]),
+								'bnet_id' => intval($sessvar["accInfo"]["id"]),
+								'battletag' => diconv(htmlspecialchars($sessvar["accInfo"]["battletag"]), 'UTF-8'),
 								'bindtime' => TIMESTAMP,
-								'region' => $_SESSION["ga_bnet"]["region"],
+								'region' => $sessvar["region"],
 							);
 							$insertid = addbindinfo($bind_u_info);
 							if ($insertid) {
@@ -258,9 +271,10 @@ if ($op == 'dzconnect') {
 		'state' => FORMHASH,
 		'redirect_uri' => $redirect_uri,
 	);
-	$_SESSION['STATE'] = $params['state'];
-	$_SESSION["ga_bnet"]["redirect_uri"] = $redirect_uri;
-	$url = $_SESSION["ga_bnet"]["url"]["authURL"] . http_build_query($params);
+	$sessvar['state'] = $params['state'];
+	$sessvar["redirect_uri"] = $redirect_uri;
+	$url = $sessvar["url"]["authURL"] . http_build_query($params);
+	updateGASession($sessvar);
 	header("Location: $url");
 }
 
@@ -305,15 +319,15 @@ function connect_login($connect_member) {
 }
 
 function get_oauth_token($code) {
-	global $_G;
+	global $_G, $sessvar;
 	$params = array(
 		'grant_type' => 'authorization_code',
-		'scope' => 'sc2.profile account.public',
+		'scope' => 'account.public',
 		'code' => $code,
-		'redirect_uri' => $_SESSION["ga_bnet"]["redirect_uri"],
+		'redirect_uri' => $sessvar["redirect_uri"],
 	);
 	$url_params = http_build_query($params);
-	$url = $_SESSION["ga_bnet"]["url"]["tokenURL"] . $url_params;
+	$url = $sessvar["url"]["tokenURL"] . $url_params;
 	$curl = curl_init();
 	curl_setopt($curl, CURLOPT_URL, $url);
 	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
@@ -326,7 +340,7 @@ function get_oauth_token($code) {
 	$expires_in = $result_obj['expires_in'];
 	$expires_at = time() + $expires_in;
 	if (!$access_token || !$expires_in) {
-		runlog('ga_bnet_error', "GA_Bnet OAuth Failed. \r\tmethod:get_oauth_token API \r\tRequest URL:" . $_SESSION["ga_bnet"]["url"]["tokenURL"] . " \r\tCombined param: \r\t\tcode: " . $code . " \r\t\tredirect_uri: " . $_SESSION["ga_bnet"]["redirect_uri"] . " \r\t\taccess_token json:" . $result . "\r\t\tSESSION ga_bnet:" . json_encode($_SESSION["ga_bnet"]));
+		runlog('ga_bnet_error', "GA_Bnet OAuth Failed. \r\tmethod:get_oauth_token API \r\tRequest URL:" . $sessvar["url"]["tokenURL"] . " \r\tCombined param: \r\t\tcode: " . $code . " \r\t\tredirect_uri: " . $sessvar["redirect_uri"] . " \r\t\taccess_token json:" . $result . "\r\t\tSESSION ga_bnet:" . json_encode($sessvar));
 		showmessage('ga_bnet:bnet_invalid_token', $_G['siteurl'], [], ['alert' => 'error']);
 	} else {
 		return [
@@ -339,19 +353,19 @@ function get_oauth_token($code) {
 }
 
 function get_oauth_identity() {
-	global $_G;
+	global $_G, $sessvar;
 	$params = array(
-		'access_token' => $_SESSION["ga_bnet"]["tokenInfo"]["token"],
+		'access_token' => $sessvar["tokenInfo"]["token"],
 	);
 	$url_params = http_build_query($params);
-	$url = $_SESSION["ga_bnet"]["url"]["userInfoURL"] . $url_params;
+	$url = $sessvar["url"]["userInfoURL"] . $url_params;
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $url);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	$result = curl_exec($ch);
 	$result_obj = json_decode($result, true);
 	if (!$result_obj['id']) {
-		runlog('ga_bnet_error', "GA_Bnet OAuth Failed. <br>Method:get_oauth_identity <br>API Request URL:" . $url . " <br>Combined param: <br>&emsp;access_token: " . $_SESSION["ga_bnet"]["tokenInfo"]["token"] . " <br>&emsp;result json:" . $result . "<br>&emsp;SESSION ga_bnet:" . json_encode($_SESSION["ga_bnet"]));
+		runlog('ga_bnet_error', "GA_Bnet OAuth Failed. <br>Method:get_oauth_identity <br>API Request URL:" . $url . " <br>Combined param: <br>&emsp;access_token: " . $sessvar["tokenInfo"]["token"] . " <br>&emsp;result json:" . $result . "<br>&emsp;SESSION ga_bnet:" . json_encode($sessvar));
 		showmessage('ga_bnet:bnet_user_info_error', $_G['siteurl'], [], ['alert' => 'error']);
 	}
 	return $result_obj;
@@ -432,4 +446,18 @@ function addmember($uid, $username, $password, $email, $ip, $groupid, $extdata, 
 	$totalmembers = DB::result_first("SELECT COUNT(*) FROM " . DB::table('common_member'));
 	$userstats = array('totalmembers' => $totalmembers, 'newsetuser' => stripslashes($username));
 	save_syscache('userstats', $userstats);
+}
+
+function updateGASession($var) {
+	global $_G;
+	$_G['cache']['plugin']['ga_bnet']['session'][$_G['sid']] = $var;
+	savecache('plugin', $_G['cache']['plugin']);
+}
+
+function clearGASession() {
+	global $_G;
+	if (isset($_G['cache']['plugin']['ga_bnet']['session'][$_G['sid']])) {
+		unset($_G['cache']['plugin']['ga_bnet']['session'][$_G['sid']]);
+		savecache('plugin', $_G['cache']['plugin']);
+	}
 }
