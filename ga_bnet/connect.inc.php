@@ -334,7 +334,7 @@ function get_oauth_token($code) {
 	$expires_in = $result_obj['expires_in'];
 	$expires_at = time() + $expires_in;
 	if (!$access_token || !$expires_in) {
-		runlog('ga_bnet_error', "GA_Bnet OAuth Failed. \r\tmethod:get_oauth_token API \r\tRequest URL:" . $sessvar["url"]["tokenURL"] . " \r\tCombined param: \r\t\tcode: " . $code . " \r\t\tredirect_uri: " . $sessvar["redirect_uri"] . " \r\t\taccess_token json:" . $result . "\r\t\tSESSION ga_bnet:" . json_encode($sessvar));
+		runlog('ga_bnet_error', "GA_Bnet OAuth Failed. <br>method:get_oauth_token API <br>Request URL:" . $sessvar["url"]["tokenURL"] . " <br>Combined param: <br>code: " . $code . " <br>redirect_uri: " . $sessvar["redirect_uri"] . " <br>access_token json:" . $result . "<br>SESSION ga_bnet:" . json_encode($sessvar));
 		showmessage('ga_bnet:bnet_invalid_token', $_G['siteurl'], [], ['alert' => 'error']);
 	} else {
 		return [
