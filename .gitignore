@@ -111,3 +111,6 @@ xcuserdata/
 *.xcscmblueprint
 
 # End of https://www.gitignore.io/api/macos,windows,sublimetext,visualstudiocode,xcode
+
+buildcloud.sh
+tinko_bnet/
