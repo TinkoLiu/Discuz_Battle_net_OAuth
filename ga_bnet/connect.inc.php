@@ -52,12 +52,6 @@ class bnetApiUrl {
 	}
 }
 $op = htmlspecialchars(getgpc('op', 'G'));
-if ($op == 'echosession'){
-	print_r($_G['cache']['plugin']);
-	echo "<br><br><br>";
-	print_r($_G['cache']['plugin']['ga_bnet']);
-	die();
-}
 if (isset($_GET["region"])) {
 	$arr = new bnetApiUrl();
 	if ($_GET["region"] != "cn" && $_GET["region"] != "us" && $_GET["region"] != "eu" && $_GET["region"] != "kr" && $_GET["region"] != "tw" && $_GET["region"] != "sea") {
