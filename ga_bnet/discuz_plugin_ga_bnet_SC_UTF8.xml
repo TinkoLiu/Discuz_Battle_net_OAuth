@@ -14,7 +14,7 @@
 			<item id="datatables"><![CDATA[]]></item>
 			<item id="directory"><![CDATA[ga_bnet/]]></item>
 			<item id="copyright"><![CDATA[Tinko @ Goblin Academy]]></item>
-			<item id="version"><![CDATA[2.0.0]]></item>
+			<item id="version"><![CDATA[2.0.1]]></item>
 			<item id="__modules">
 				<item id="0">
 					<item id="name"><![CDATA[bnet]]></item>
