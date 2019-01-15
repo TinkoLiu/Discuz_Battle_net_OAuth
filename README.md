@@ -6,6 +6,10 @@ A Battle.net OAuth login plugin for Discuz! X.
 
 Made by Tinko for [Goblin Academy](https://bbs.islga.org/).
 
+## Dependency
+
+* php curl module is required
+
 ## Usage
 
 1. Copy `ga_bnet` folder into `[discuz_root]/source/plugin`

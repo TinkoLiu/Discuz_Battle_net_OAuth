@@ -4,6 +4,10 @@ Discuz! 论坛系统战网对接插件
 
 Tinko @ [地精研究院](https://bbs.islga.org/).
 
+## 环境依赖
+
+* php cURL 模块
+
 ## 用法
 
 1. 将 `ga_bnet` 复制到 `[discuz根目录]/source/plugin`
